@@ -138,7 +138,7 @@ describe CarrierWave::MongoMapper do
 
     end
 
-    context 'when validating integrity' do
+    pending 'when validating integrity' do
       before do
         mongo_user_klass = reset_mongo_class(WhiteListUploader)
         @doc = mongo_user_klass.new
@@ -166,7 +166,7 @@ describe CarrierWave::MongoMapper do
       end
     end
 
-    context 'when validating processing' do
+    pending 'when validating processing' do
       before do
         mongo_user_klass = reset_mongo_class(ProcessingErrorUploader)
         @doc = mongo_user_klass.new
