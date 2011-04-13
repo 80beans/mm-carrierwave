@@ -17,14 +17,8 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_development_dependency "rails", ["~> 3.0.0"]
-  s.add_development_dependency('rspec', ["~> 2.1.0"])
-  s.add_development_dependency "mini_magick", ["~> 2.3"]
-  s.add_development_dependency "bson_ext", ["= 1.1.5"]
-  s.add_development_dependency "carrierwave"
-  s.add_development_dependency "activemodel"
-  s.add_development_dependency "mongo_mapper"
+  s.add_dependency 'mongo_mapper', ['~> 0.9']
+  s.add_dependency 'carrierwave', ['~> 0.5']
+  s.add_development_dependency('rspec', ["~> 2.1"])
   s.add_development_dependency "timecop"
-  s.add_development_dependency "json"
-  s.add_development_dependency "jnunemaker-validatable"
 end
