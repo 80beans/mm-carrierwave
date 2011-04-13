@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 require 'mongo_mapper'
+require 'carrierwave/validations/active_model'
 
 module CarrierWave
   module MongoMapper
@@ -17,8 +18,10 @@ module CarrierWave
       alias_method :read_uploader, :read_attribute
       alias_method :write_uploader, :write_attribute
 
-     # validates_integrity_of  column if uploader_option(column.to_sym, :validate_integrity)
-     # validates_processing_of column if uploader_option(column.to_sym, :validate_processing)
+      include CarrierWave::Validations::ActiveModel
+
+      validates_integrity_of  column if uploader_option(column.to_sym, :validate_integrity)
+      validates_processing_of column if uploader_option(column.to_sym, :validate_processing)
 
       after_save "store_#{column}!".to_sym
       before_save "write_#{column}_identifier".to_sym
@@ -27,4 +30,4 @@ module CarrierWave
   end
 end
 
-MongoMapper::Document.append_extensions(CarrierWave::MongoMapper)
+MongoMapper::Plugins::Rails::ClassMethods.send(:include, CarrierWave::MongoMapper)
