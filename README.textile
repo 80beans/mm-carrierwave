@@ -8,7 +8,7 @@ https://github.com/jnicklas/carrierwave
 
 h2. Status
 
-Everything works except validations right now.
+Everything works except translations of validations right now.
 
 
 h2. License
